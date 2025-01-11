@@ -27,7 +27,7 @@ def read_new_shares(file_name):
     df.drop([ 'isin',  'exchange', 'segment', 'series',  'auction',  'trade_id', 'order_id', 'order_execution_time'] , axis=1, inplace=True)
     df.rename(columns={'symbol': "NAME", 'trade_date': "DATE",  'trade_type': "TRADE", 'quantity': "QTY", 'price': "AMT"} , inplace=True)
     df['QTY'] = df['QTY'].astype(int)
-    df['DATE'] = pd.to_datetime(df['DATE'], format='%d-%m-%Y')
+    df['DATE'] = pd.to_datetime(df['DATE'])
     return df
 
 def add_custom_entries(): #FOR IPO, BONUS, SPLIT, BUYBACK
